@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farm Inputs Store</title>
+
+<style>
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #f5f7f6, #e9f5ee);
+  margin: 0;
+  color: #222;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  color: #fff;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+/* CONTAINER */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 25px 0;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+/* PRODUCT CARD */
+.product-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+  border: 1px solid #eef2ef;
+  transition: 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .12);
+}
+
+.product-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.content {
+  padding: 16px;
+}
+
+.content h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #1b5e20;
+}
+
+/* PRICE */
+.price {
+  font-size: 22px;
+  color: #2e7d32;
+  font-weight: 800;
+  margin: 10px 0;
+}
+
+/* INPUT */
+input {
+  width: 70px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.15);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* FLOATING CHECKOUT BUTTON */
+.checkout-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Farm Inputs Store</h1>
+</header>
+
+<div class="container">
+  <div class="grid">
+
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/DAP-18-46-212x300.png" alt="Fertilizer">
+      <div class="content">
+        <h3>Fertilizer</h3>
+        <p>D.A.P Fertilizer 10kg.</p>
+        <div class="price">KSh 1,450-7,300</div>
+        <input type="number" min="1" value="1" id="fertilizer">
+        <button onclick="addToCart('Fertilizer', 1,450-7,300,document.getElementById('fertilizer').value)">
+          Add To Cart
+        </button>
+      </div>
+    </div>
+    <div class="container">
+  <div class="grid">
+
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/CAN_YARA.png" alt="Fertilizer">
+      <div class="content">
+        <h3>Fertilizer</h3>
+        <p>C.A.N FERTILIZER 10kg.</p>
+        <div class="price">KSh 980-4,450</div>
+        <input type="number" min="1" value="1" id="fertilizer">
+        <button onclick="addToCart('Fertilizer',980-4,450,document.getElementById('fertilizer').value)">
+          Add To Cart
+        </button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/kausha-480-sl-1lt.png" alt="Herbicide">
+      <div class="content">
+        <h3>Herbicides</h3>
+        <p>Kausha 1ltr.</p>
+        <div class="price">KSh 750-13,340</div>
+        <input type="number" min="1" value="1" id="herbicides">
+        <button onclick="addToCart('Herbicides',750-13,340,document.getElementById('herbicides').value)">
+          Add To Cart
+        </button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/nimbicidine.png" alt="Insecticide">
+      <div class="content">
+        <h3>Insecticides</h3>
+        <p>Nimbercidine - organic insecticide 100ml.</p>
+        <div class="price">KSh 200</div>
+        <input type="number" min="1" value="1" id="insecticides">
+        <button onclick="addToCart('Insecticides',200,document.getElementById('insecticides').value)">
+          Add To Cart
+        </button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/Wuxal-A.png" alt="Foliar Fertilizer">
+      <div class="content">
+        <h3>Foliar Fertilizer</h3>
+        <p>Wuxal 500ml.</p>
+        <div class="price">KSh 1,260</div>
+        <input type="number" min="1" value="1" id="foliar">
+        <button onclick="addToCart('Foliar Fertilizer',1,260,document.getElementById('foliar').value)">
+          Add To Cart
+        </button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/Milraz-500g-A.png" alt="Fungicide">
+      <div class="content">
+        <h3>Fungicides</h3>
+        <p>Milraz 500g.</p>
+        <div class="price">KSh 1,520</div>
+        <input type="number" min="1" value="1" id="fungicides">
+        <button onclick="addToCart('Fungicides',1,520,document.getElementById('fungicides').value)">
+          Add To Cart
+        </button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/81WzotxdM1L__AC_SY450_1.jpg" alt="Farm Tools">
+      <div class="content">
+        <h3>Farm Tools</h3>
+        <p>66 Hole Seedling Tray.</p>
+        <div class="price">KSh 140</div>
+        <input type="number" min="1" value="1" id="tools">
+        <button onclick="addToCart('Farm Tools',140,document.getElementById('tools').value)">
+          Add To Cart
+        </button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/peat-moss-web03.jpg" alt="Farm Tools">
+      <div class="content">
+        <h3>Farm Tools</h3>
+        <p>Peat Moss LSM 2W 14Kg.</p>
+        <div class="price">KSh 3,100</div>
+        <input type="number" min="1" value="1" id="tools">
+        <button onclick="addToCart('Farm Tools',3,100,document.getElementById('tools').value)">
+          Add To Cart
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<button class="checkout-btn" onclick="submitOrder()">Submit Cart🛒</button>
+
+<script>
+function addToCart(name, price, quantity){
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  cart.push({
+    name: name,
+    price: price,
+    quantity: parseInt(quantity)
+  });
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  alert(name + ' added to cart');
+}
+
+function submitOrder(){
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  if(cart.length === 0){
+    alert('Please add at least one farm input to your cart.');
+    return;
+  }
+
+  window.location.href = 'cart.html';
+}
+</script>
+
+</body>
+</html>

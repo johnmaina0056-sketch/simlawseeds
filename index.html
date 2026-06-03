@@ -15,14 +15,26 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <style>
 
+/* ==========================
+   GLOBAL
+========================== */
+
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background:#ffffff;
+    background:#fff;
     margin:0;
     padding:0;
+    overflow-x:hidden;
 }
 
-/* TOP BAR */
+img{
+    max-width:100%;
+    height:auto;
+}
+
+/* ==========================
+   TOP BAR
+========================== */
 
 .top-bar{
     background:#108244;
@@ -40,63 +52,89 @@ body{
     margin-right:5px;
 }
 
-/* LOGO */
+/* ==========================
+   LOGO
+========================== */
 
 .logo{
     font-size:34px;
     font-weight:bold;
+    color:#108244 !important;
 }
 
 .logo span{
     color:#a1c13c;
 }
 
-.logo{
-    color:#108244;
-}
-
-/* NAVIGATION */
+/* ==========================
+   NAVBAR
+========================== */
 
 .navbar{
     background:#fff !important;
     border-bottom:2px solid #108244;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .navbar-nav .nav-link{
     color:#333 !important;
     font-weight:600;
     margin-right:10px;
+    transition:.3s;
 }
 
 .navbar-nav .nav-link:hover{
     color:#108244 !important;
 }
 
-/* SEARCH */
+.navbar-toggler{
+    border:none;
+}
+
+.navbar-toggler:focus{
+    box-shadow:none;
+}
+
+/* ==========================
+   SEARCH
+========================== */
 
 .search-box{
     width:250px;
 }
 
-/* HERO */
+/* ==========================
+   HERO SECTION
+========================== */
 
 .hero{
-    background:#108244;
+    background:
+    linear-gradient(
+        rgba(16,130,68,.88),
+        rgba(16,130,68,.88)
+    );
     color:white;
-    padding:80px 20px;
+    padding:100px 20px;
     text-align:center;
 }
 
 .hero h1{
     font-size:55px;
     font-weight:bold;
+    margin-bottom:20px;
 }
 
 .hero p{
     font-size:18px;
+    max-width:700px;
+    margin:auto;
 }
 
-/* SECTION TITLE */
+/* ==========================
+   SECTION TITLE
+========================== */
 
 .section-title{
     color:#108244;
@@ -106,14 +144,17 @@ body{
     font-weight:bold;
 }
 
-/* PRODUCTS */
+/* ==========================
+   PRODUCTS
+========================== */
 
 .product-card{
     border:1px solid #ddd;
-    border-radius:8px;
+    border-radius:10px;
     overflow:hidden;
     transition:.3s;
     height:100%;
+    background:#fff;
 }
 
 .product-card:hover{
@@ -131,6 +172,11 @@ body{
     padding:15px;
 }
 
+.product-body h5{
+    min-height:50px;
+    font-weight:600;
+}
+
 .price{
     color:#108244;
     font-size:24px;
@@ -142,27 +188,53 @@ body{
     font-weight:bold;
 }
 
+/* ==========================
+   BUTTONS
+========================== */
+
 .btn-simlaw{
     background:#108244;
-    color:white;
+    color:#fff;
     border:none;
 }
 
 .btn-simlaw:hover{
     background:#0b6936;
-    color:white;
+    color:#fff;
 }
 
-/* PARTNERS */
+.btn-simlaw,
+.btn-success{
+    transition:.3s;
+}
+
+/* ==========================
+   COLLABORATORS
+========================== */
 
 .partner-logo{
     width:100%;
     max-height:90px;
     object-fit:contain;
     padding:10px;
+    transition:.3s;
 }
 
-/* FOOTER */
+.partner-logo:hover{
+    transform:scale(1.05);
+}
+
+/* ==========================
+   QUICK ACCESS
+========================== */
+
+.fa-3x{
+    margin-bottom:15px;
+}
+
+/* ==========================
+   FOOTER
+========================== */
 
 .footer-top{
     background:#f8f8f8;
@@ -205,6 +277,205 @@ body{
     padding:10px;
 }
 
+/* ==========================
+   TABLETS
+========================== */
+
+@media (max-width:991px){
+
+    .logo{
+        font-size:30px;
+    }
+
+    .hero{
+        padding:80px 20px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .search-box{
+        width:100%;
+    }
+
+    .navbar .d-flex{
+        margin-top:15px;
+        width:100%;
+    }
+
+    .partner-logo{
+        max-height:70px;
+    }
+}
+
+/* ==========================
+   MOBILE DEVICES
+========================== */
+
+@media (max-width:768px){
+
+    /* Top Bar */
+    .top-bar{
+        text-align:center;
+    }
+
+    .top-bar .text-end{
+        text-align:center !important;
+    }
+
+    /* Logo */
+    .logo{
+        font-size:28px;
+    }
+
+    /* Hero */
+    .hero{
+        padding:60px 15px;
+    }
+
+    .hero h1{
+        font-size:34px;
+        line-height:1.2;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    /* Navbar */
+    .navbar-nav{
+        margin-top:15px;
+    }
+
+    .navbar-nav .nav-link{
+        padding:10px 0;
+        margin-right:0;
+    }
+
+    /* Search */
+    .navbar .d-flex{
+        flex-direction:column;
+        gap:10px;
+        width:100%;
+    }
+
+    .search-box{
+        width:100%;
+    }
+
+    .navbar .btn{
+        width:100%;
+    }
+
+    /* Products */
+    .product-card{
+        margin-bottom:20px;
+    }
+
+    .product-card img{
+        height:220px;
+    }
+
+    .product-body{
+        text-align:center;
+    }
+
+    .price{
+        font-size:22px;
+    }
+
+    /* Quick Access */
+    .row.text-center > div{
+        margin-bottom:30px;
+    }
+
+    /* Footer */
+    .footer-top{
+        text-align:center;
+    }
+
+    .footer-top .col-md-3{
+        margin-bottom:30px;
+    }
+}
+
+/* ==========================
+   SMALL PHONES
+========================== */
+
+@media (max-width:576px){
+
+    .container{
+        padding-left:15px;
+        padding-right:15px;
+    }
+
+    .hero h1{
+        font-size:28px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .section-title{
+        font-size:26px;
+    }
+
+    .product-card img{
+        height:180px;
+    }
+
+    .product-body{
+        padding:12px;
+    }
+
+    .btn-simlaw,
+    .btn-success{
+        width:100%;
+        margin-top:8px;
+    }
+
+    .partner-logo{
+        max-height:55px;
+    }
+
+    .price{
+        font-size:20px;
+    }
+}
+
+/* ==========================
+   EXTRA SMALL DEVICES
+========================== */
+
+@media (max-width:400px){
+
+    .logo{
+        font-size:24px;
+    }
+
+    .hero h1{
+        font-size:24px;
+    }
+
+    .hero p{
+        font-size:13px;
+    }
+
+    .section-title{
+        font-size:22px;
+    }
+
+    .top-bar{
+        font-size:12px;
+    }
+}
 </style>
 
 </head>
@@ -212,787 +483,275 @@ body{
 <body>
 
 <!-- TOP CONTACT BAR -->
+<!-- TOP CONTACT BAR -->
 
 <div class="top-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 text-center text-md-start">
+                <i class="fa fa-phone"></i> 0736673608
+            </div>
 
-<div class="container">
-
-<div class="row">
-
-<div class="col-md-6">
-
-<i class="fa fa-phone"></i>
-0736673608
-
-</div>
-
-<div class="col-md-6 text-end">
-
-<i class="fa fa-envelope"></i>
-abiudmasai0@gmail.com
-
-</div>
-
-</div>
-
-</div>
-
+            <div class="col-12 col-md-6 text-center text-md-end">
+                <i class="fa fa-envelope"></i> abiudmasai0@gmail.com
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- NAVIGATION -->
 
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
 
-<div class="container">
+        <a class="navbar-brand logo" href="#">
+            <span>Simlaw</span> Seeds
+        </a>
 
-<a class="navbar-brand logo" href="#">
-<span>Simlaw</span> Seeds
-</a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainMenu">
 
-<button
-class="navbar-toggler"
-type="button"
-data-bs-toggle="collapse"
-data-bs-target="#mainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-<span class="navbar-toggler-icon"></span>
+        <div class="collapse navbar-collapse" id="mainMenu">
 
-</button>
+            <ul class="navbar-nav ms-auto">
 
-<div
-class="collapse navbar-collapse"
-id="mainMenu">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"
+                       href="#"
+                       role="button"
+                       data-bs-toggle="dropdown">
 
-<ul class="navbar-nav ms-auto">
+                        Categories
+                    </a>
 
-<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-        Categories
-    </a>
+                    <ul class="dropdown-menu">
+                        <li><h6 class="dropdown-header">Product Categories</h6></li>
 
-    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="vegetables.html">Vegetables</a></li>
+                        <li><a class="dropdown-item" href="maize.html">Maize</a></li>
+                        <li><a class="dropdown-item" href="cereals.html">Cereals</a></li>
+                        <li><a class="dropdown-item" href="pulses.html">Pulses</a></li>
+                        <li><a class="dropdown-item" href="herbs.html">Herbs</a></li>
+                        <li><a class="dropdown-item" href="pasture.html">Pasture</a></li>
+                        <li><a class="dropdown-item" href="lawn.html">Lawn Grass</a></li>
+                        <li><a class="dropdown-item" href="otherinputs.html">Other Inputs</a></li>
+                        <li><a class="dropdown-item" href="seedlings.html">Seedlings</a></li>
+                    </ul>
+                </li>
 
-        <li><h6 class="dropdown-header">Product Categories</h6></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Products</a>
+                </li>
 
-        <li><a class="dropdown-item" href="vegetables.html">Vegetables</a></li>
-        <li><a class="dropdown-item" href="maize.html">Maize</a></li>
-        <li><a class="dropdown-item" href="cereals.html">Cereals</a></li>
-        <li><a class="dropdown-item" href="pulses.html">Pulses</a></li>
-        <li><a class="dropdown-item" href="herbs.html">Herbs</a></li>
-        <li><a class="dropdown-item" href="#pasture.html">Pasture</a></li>
-        <li><a class="dropdown-item" href="lawn.html">Lawn-grass</a></li>
-        <li><a class="dropdown-item" href="otherinputs.html">Other Inputs</a></li>
-        <li><a class="dropdown-item" href="seedlings.html">Seedlings</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Events</a>
+                </li>
 
-    </ul>
-</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
 
-<li class="nav-item">
-<a class="nav-link" href="#">Products</a>
-</li>
+            </ul>
 
+            <form class="d-flex flex-column flex-lg-row ms-lg-3 mt-3 mt-lg-0">
+                <input
+                    class="form-control search-box mb-2 mb-lg-0"
+                    type="search"
+                    placeholder="Search Products">
 
-<li class="nav-item">
-<a class="nav-link" href="#">Events</a>
-</li>
+                <button
+                    class="btn btn-success ms-lg-2"
+                    type="submit">
 
-<li class="nav-item">
-<a class="nav-link" href="#">Contact</a>
-</li>
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
 
-</ul>
-
-<form class="d-flex ms-3">
-
-<input
-class="form-control search-box"
-type="search"
-placeholder="Search Products">
-
-<button
-class="btn btn-success ms-2"
-type="submit">
-
-<i class="fa fa-search"></i>
-
-</button>
-
-</form>
-
-</div>
-
-</div>
-
+        </div>
+    </div>
 </nav>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 
 <section class="hero">
+    <div class="container">
 
-<div class="container">
+        <h1>SIMLAW SEEDS</h1>
 
-<h1>SIMLAW SEEDS</h1>
+        <p>
+            Quality Seeds • Better Harvests • Trusted Agriculture Partner
+        </p>
 
-<p>
-Quality Seeds • Better Harvests • Trusted Agriculture Partner
-</p>
+        <a href="#products" class="btn btn-light btn-lg mt-3 px-4">
+            Shop Now
+        </a>
 
-<a href="#products"
-class="btn btn-light btn-lg mt-3">
-
-Shop Now
-
-</a>
-
-</div>
-
+    </div>
 </section>
 
-<!-- PRODUCTS SECTION -->
+<!-- PRODUCTS -->
 
 <section id="products" class="container py-5">
 
-<h2 class="section-title">
-Featured Products
-</h2>
+    <h2 class="section-title">
+        Featured Products
+    </h2>
 
-<div class="row g-4">
+    <div class="row g-4">
 
-<!-- PRODUCT 1 -->
+        <!-- PRODUCT -->
 
-<div class="col-md-3">
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="product-card">
 
-<div class="product-card">
+                <img
+                    src="https://www.simlaw.co.ke/uploads/product/greenfeast2.jpg"
+                    alt="Peas Green Feast">
 
-<img
-src="https://www.simlaw.co.ke/uploads/product/greenfeast2.jpg"
-alt="Peas Green Feast 250g">
+                <div class="product-body">
 
-<div class="product-body">
+                    <h5>Peas Green Feast 250g</h5>
 
-<h5>
-Peas Green Feast 250g
-</h5>
+                    <p class="price">Kshs.115</p>
 
-<p class="price">
-Kshs.115
-</p>
+                    <p>
+                        Dual-purpose pea (fresh and dry).
+                        Good tolerance to mildew.
+                        First harvest in 65–70 days.
+                    </p>
 
-<p>
-Dual-purpose pea (fresh and dry).
-Good tolerance to mildew.
-First harvest in 65–70 days.
-</p>
+                    <button
+                        class="btn btn-simlaw w-100"
+                        onclick="addToCart('Peas Green Feast 250g',115)">
 
+                        <i class="fa fa-shopping-cart"></i>
+                        Add To Cart
+                    </button>
 
-<button class="btn btn-simlaw"
-onclick="addToCart('Peas Green Feast 250g', 115)">
-    <i class="fa fa-shopping-cart"></i>
-    Add To Cart
-</button>
-<button class="btn btn-success w-100 mt-3" onclick="submitOrder()">
-    Submit Cart 🛒
-</button
-</div>
+                    <button
+                        class="btn btn-success w-100 mt-2"
+                        onclick="submitOrder()">
 
-</div>
+                        Submit Cart 🛒
+                    </button>
 
-</div>
+                </div>
+            </div>
+        </div>
 
-<!-- PRODUCT 2 -->
+        <!-- Repeat same structure for all other products -->
 
-<div class="col-md-3">
-
-<div class="product-card">
-
-<img
-src="https://www.simlaw.co.ke/uploads/product/OatsPile_photo-cred-Adobestock_E1.jpg"
-alt="Oats S18 500g">
-
-<div class="product-body">
-
-<h5>
-Oats S18 500g
-</h5>
-
-<p class="price">
-Kshs.75
-</p>
-
-<p>
-Highest quality grain and fodder.
-Ideal for silage and hay making.
-Suitable for cool highland regions.
-</p>
-
-<button class="btn btn-simlaw"
-onclick="addToCart('Oats S18 500g', 75)">
-    <i class="fa fa-shopping-cart"></i>
-    Add To Cart
-</button>
-<button class="btn btn-success w-100 mt-3" onclick="submitOrder()">
-    Submit Cart 🛒
-</button
-</div>
-
-</div>
-
-</div>
-
-<!-- PRODUCT 3 -->
-
-<div class="col-md-3">
-
-<div class="product-card">
-
-<img
-src="https://www.simlaw.co.ke/uploads/product/OatsPile_photo-cred-Adobestock_E.jpg"
-alt="Oats S18 1kg">
-
-<div class="product-body">
-
-<h5>
-Oats S18 1kg
-</h5>
-
-<p class="price">
-Kshs.270
-</p>
-
-<p>
-One of Kenya's best oat varieties.
-Excellent grain yield and fodder biomass.
-Perfect for silage production.
-</p>
-
-<button class="btn btn-simlaw"
-onclick="addToCart('Oats S18 1kg', 270)">
-    <i class="fa fa-shopping-cart"></i>
-    Add To Cart
-</button>
-<button class="btn btn-success w-100 mt-3" onclick="submitOrder()">
-    Submit Cart 🛒
-</button
-</div>
-
-</div>
-
-</div>
-
-<!-- PRODUCT 4 -->
-
-<div class="col-md-3">
-
-<div class="product-card">
-
-<img
-src="https://www.simlaw.co.ke/uploads/product/VqE4qMaize1.jpg"
-alt="H 513 2kg">
-
-<div class="product-body">
-
-<h5>
-H 513 2kg
-</h5>
-
-<p class="price">
-Kshs.600
-</p>
-
-<p>
-Recommended rainfall:
-750-1000mm.
-Matures in 100-110 days.
-Partially tolerant to Maize Streak Virus.
-</p>
-
-<button class="btn btn-simlaw"
-onclick="addToCart('H 513 2kg', 600)">
-    <i class="fa fa-shopping-cart"></i>
-    Add To Cart
-</button>
-<button class="btn btn-success w-100 mt-3" onclick="submitOrder()">
-    Submit Cart 🛒
-</button
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+    </div>
 </section>
 
 <!-- RECOMMENDED PRODUCTS -->
 
 <section class="container py-5">
 
-<h2 class="section-title">
-Recommended Products
-</h2>
+    <h2 class="section-title">
+        Recommended Products
+    </h2>
 
-<div class="row g-4">
+    <div class="row g-4">
 
-<!-- Kunde Mboga -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="product-card">
+                <div class="product-body">
 
-<div class="col-md-4">
+                    <h5>Kunde Mboga 250Gms</h5>
 
-<div class="product-card">
-
-<div class="product-body">
-
-<h5>
-Kunde Mboga 250Gms
-</h5>
-
-<p class="price">
-Kshs.160
-</p>
-
-<p>
-Highly nutritious.
-Grows in all ecological zones.
-Excellent flavour.
-</p>
-
-<button class="btn btn-simlaw"
-onclick="addToCart('Kunde Mboga 250Gms', 160)">
-    <i class="fa fa-shopping-cart"></i>
-    Add To Cart
-</button>
-<button class="btn btn-success w-100 mt-3" onclick="submitOrder()">
-    Submit Cart 🛒
-</button
-</div>
-
-</div>
-
-</div>
-
-<!-- Peas Green Feast -->
-
-<div class="col-md-4">
-
-<div class="product-card">
-
-<img
-src="https://www.simlaw.co.ke/uploads/product/greenfeast2.jpg">
-
-<div class="product-body">
-
-<h5>
-Peas Green Feast 250g
-</h5>
-
-<p class="price">
-Kshs.115
-</p>
-
-<p>
-Dual-purpose pea.
-Prefers medium to high altitudes.
-Good mildew tolerance.
-</p>
-
-<button class="btn btn-simlaw"
-onclick="addToCart('Peas Green Feast 250g', 115)">
-    <i class="fa fa-shopping-cart"></i>
-    Add To Cart
-</button>
-
-<button class="btn btn-success w-100 mt-3" onclick="submitOrder()">
-    Submit Cart 🛒
-</button
-</div>
-
-</div>
-
-</div>
-
-<!-- Oats -->
-
-<div class="col-md-4">
-
-<div class="product-card">
-
-<img
-src="https://www.simlaw.co.ke/uploads/product/OatsPile_photo-cred-Adobestock_E.jpg">
-
-<div class="product-body">
-
-<h5>
-Oats S18 1kg
-</h5>
-
-<p class="price">
-Kshs.270
-</p>
-
-<p>
-Premium oat variety.
-Excellent for livestock feed.
-Suitable for hay and silage.
-</p>
-
-<button class="btn btn-simlaw"
-onclick="addToCart('Oats S18 1kg', 270)">
-    <i class="fa fa-shopping-cart"></i>
-    Add To Cart
-</button>
-<button class="btn btn-success w-100 mt-3" onclick="submitOrder()">
-    Submit Cart 🛒
-</button
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-<!-- COLLABORATORS SECTION -->
-
-<section class="container py-5">
-
-<h2 class="section-title">
-OUR COLLABORATORS
-</h2>
-
-<div id="partnerCarousel"
-class="carousel slide"
-data-bs-ride="carousel">
-
-<div class="carousel-inner">
-
-<!-- SLIDE 1 -->
-
-<div class="carousel-item active">
-
-<div class="row text-center align-items-center">
-
-<div class="col">
-<a href="https://www.kephis.org/" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/10.png"
-class="partner-logo"
-alt="KEPHIS">
-</a>
-</div>
-
-<div class="col">
-<a href="https://www.afsta.org/" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/2.png"
-class="partner-logo"
-alt="AFSTA">
-</a>
-</div>
-
-<div class="col">
-<a href="https://web.apsaseed.org/" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/3.png"
-class="partner-logo"
-alt="APSA">
-</a>
-</div>
-
-<div class="col">
-<a href="https://ask.co.ke/" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/4.png"
-class="partner-logo"
-alt="ASK">
-</a>
-</div>
-
-<div class="col">
-<a href="http://www.fao.org/home/en/" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/5.png"
-class="partner-logo"
-alt="FAO">
-</a>
-</div>
-
-<div class="col">
-<a href="http://www.icipe.org/" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/6.png"
-class="partner-logo"
-alt="ICIPE">
-</a>
-</div>
-
-</div>
-
-</div>
-
-<!-- SLIDE 2 -->
-
-<div class="carousel-item">
-
-<div class="row text-center align-items-center">
-
-<div class="col">
-<a href="https://www.icrc.org/" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/7.png"
-class="partner-logo"
-alt="ICRC">
-</a>
-</div>
-
-<div class="col">
-<a href="https://www.seedtest.org/en/home.html" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/8.png"
-class="partner-logo"
-alt="ISTA">
-</a>
-</div>
-
-<div class="col">
-<a href="https://www.kebs.org/" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/9.png"
-class="partner-logo"
-alt="KEBS">
-</a>
-</div>
-
-<div class="col">
-<a href="https://www.wvi.org/kenya" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/1.png"
-class="partner-logo"
-alt="World Vision">
-</a>
-</div>
-
-<div class="col">
-<a href="https://www.kilimo.go.ke/" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/11.png"
-class="partner-logo"
-alt="Kilimo">
-</a>
-</div>
-
-<div class="col">
-<a href="https://oneacrefund.org/" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/12.png"
-class="partner-logo"
-alt="One Acre Fund">
-</a>
-</div>
-
-</div>
-
-</div>
-
-<!-- SLIDE 3 -->
-
-<div class="carousel-item">
-
-<div class="row text-center align-items-center">
-
-<div class="col">
-<a href="https://stak.or.ke/" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/13.png"
-class="partner-logo"
-alt="STAK">
-</a>
-</div>
-
-<div class="col">
-<a href="https://www.uonbi.ac.ke/" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/14.png"
-class="partner-logo"
-alt="UON">
-</a>
-</div>
-
-<div class="col">
-<a href="https://avrdc.org/" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/15.png"
-class="partner-logo"
-alt="AVRDC">
-</a>
-</div>
-
-<div class="col">
-<a href="https://www.meteo.go.ke/" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/16.png"
-class="partner-logo"
-alt="Kenya Meteorological">
-</a>
-</div>
-
-<div class="col">
-<a href="https://oneacrefund.org/" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/12.png"
-class="partner-logo"
-alt="One Acre Fund">
-</a>
-</div>
-
-<div class="col">
-<a href="https://www.kephis.org/" target="_blank">
-<img
-src="https://www.simlaw.co.ke/assets/front/images/partners/10.png"
-class="partner-logo"
-alt="KEPHIS">
-</a>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<button
-class="carousel-control-prev"
-type="button"
-data-bs-target="#partnerCarousel"
-data-bs-slide="prev">
-
-<span class="carousel-control-prev-icon"></span>
-
-</button>
-
-<button
-class="carousel-control-next"
-type="button"
-data-bs-target="#partnerCarousel"
-data-bs-slide="next">
-
-<span class="carousel-control-next-icon"></span>
-
-</button>
-
-</div>
-
-</section>
-
-<!-- QUICK ACCESS SECTION -->
-
-<section class="container py-5">
-
-<div class="row text-center">
-
-<div class="col-md-3">
-
-<i class="fa fa-calendar fa-3x"
-style="color:#a1c13c;"></i>
-
-<h4 class="mt-3">
-Schedule Events
-</h4>
-
-<p>
-Upcoming company events and activities.
-</p>
-
-</div>
-
-<div class="col-md-3">
-
-<i class="fa fa-map-marker-alt fa-3x"
-style="color:#108244;"></i>
-
-<h4 class="mt-3">
-Physical Address
-</h4>
-
-<p>
-Nairobi, Kenya
-</p>
-
-</div>
-
-<div class="col-md-3">
-
-<i class="fa fa-credit-card fa-3x"
-style="color:#a1c13c;"></i>
-
-<h4 class="mt-3">
-Secure Payment
-</h4>
-
-<p>
-Fast and secure transactions.
-</p>
-
-</div>
-
-<div class="col-md-3">
-
-<i class="fa fa-clock fa-3x"
-style="color:#108244;"></i>
-
-<h4 class="mt-3">
-Opening Hours
-</h4>
-
-<p>
-Monday - Saturday
-</p>
-
-</div>
-
-</div>
-
-</section>
-<!-- ================= FOOTER ================= -->
-<footer>
-
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-
-                <!-- ABOUT -->
-                <div class="col-md-4">
-                    <h4>Simlaw Seeds</h4>
-                    <p>
-                        Quality agricultural seeds for better harvests and productivity.
-                        Trusted farming partner across Kenya.
+                    <p class="price">
+                        Kshs.160
                     </p>
-                </div>
 
-                <!-- QUICK LINKS -->
-                <div class="col-md-4">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
+                    <p>
+                        Highly nutritious.
+                        Grows in all ecological zones.
+                        Excellent flavour.
+                    </p>
 
-                <!-- CONTACT -->
-                <div class="col-md-4">
-                    <h4>Contact Us</h4>
-                    <p><i class="fa fa-phone"></i> 0736673608</p>
-                    <p><i class="fa fa-envelope"></i> abiudmasai0@gmail.com</p>
-                    <p><i class="fa fa-map-marker-alt"></i> Nairobi, Kenya</p>
-                </div>
+                    <button
+                        class="btn btn-simlaw w-100"
+                        onclick="addToCart('Kunde Mboga 250Gms',160)">
+                        Add To Cart
+                    </button>
 
+                    <button
+                        class="btn btn-success w-100 mt-2"
+                        onclick="submitOrder()">
+                        Submit Cart 🛒
+                    </button>
+
+                </div>
             </div>
         </div>
+
+    </div>
+</section>
+
+<!-- QUICK ACCESS -->
+
+<section class="container py-5">
+
+    <div class="row text-center g-4">
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <i class="fa fa-calendar fa-3x text-success"></i>
+
+            <h4 class="mt-3">
+                Schedule Events
+            </h4>
+
+            <p>
+                Upcoming company events and activities.
+            </p>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <i class="fa fa-map-marker-alt fa-3x text-success"></i>
+
+            <h4 class="mt-3">
+                Physical Address
+            </h4>
+
+            <p>
+                Nairobi, Kenya
+            </p>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <i class="fa fa-credit-card fa-3x text-success"></i>
+
+            <h4 class="mt-3">
+                Secure Payment
+            </h4>
+
+            <p>
+                Fast and secure transactions.
+            </p>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <i class="fa fa-clock fa-3x text-success"></i>
+
+            <h4 class="mt-3">
+                Opening Hours
+            </h4>
+
+            <p>
+                Monday - Saturday
+            </p>
+        </div>
+
     </div>
 
+</section>
     <div class="footer-bottom">
         <p>&copy; 2026 Simlaw Seeds. All Rights Reserved.</p>
     </div>

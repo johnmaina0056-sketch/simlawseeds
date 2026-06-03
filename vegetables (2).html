@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vegetables Store</title>
+<style>
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #f5f7f6, #e9f5ee);
+  margin: 0;
+  color: #222;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  color: #fff;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+/* CONTAINER */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 25px 0;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+/* PRODUCT CARD */
+.product-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+  transition: 0.25s ease;
+  border: 1px solid #eef2ef;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .12);
+}
+
+/* IMAGE */
+.product-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* CONTENT */
+.content {
+  padding: 16px;
+}
+
+/* TITLE INSIDE CARD (optional improvement) */
+.content h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #1b5e20;
+}
+
+/* PRICE */
+.price {
+  font-size: 22px;
+  color: #2e7d32;
+  font-weight: 800;
+  margin: 10px 0;
+}
+
+/* INPUT */
+input {
+  width: 70px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.2s;
+}
+
+input:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, .15);
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .15);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* CHECKOUT */
+.checkout {
+  text-align: center;
+  margin: 35px 0;
+}
+
+.checkout-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  
+  border: none;
+  border-radius: 50%;
+  
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+  
+  transition: 0.25s ease;
+}
+
+.checkout-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, .3);
+}
+
+.checkout-btn:active {
+  transform: scale(0.9);
+}
+</style>
+</head>
+<body>
+<header><h1>Vegetable Categories</h1></header>
+<div class="container">
+<div class="grid">
+
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/owVr9Beetroot%20Detroit%20Dark%20Red.jpg">
+      <div class="content">
+        <h3>Beetroot</h3>
+        <p>BeetRT Detroit 100g</p>
+        <div class="price">KSh.60-3,010</div>
+        <input type="number" min="1" value="1" id="beetroot">
+        <button onclick="addToCart('Beetroot',120,document.getElementById('beetroot').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/broccoli-floret-5001.jpg">
+      <div class="content">
+        <h3>Broccoli</h3>
+        <p>Shirley Broccoli F1 50 sds</p>
+        <div class="price">KSh 100</div>
+        <input type="number" min="1" value="1" id="broccoli">
+        <button onclick="addToCart('Broccoli',180,document.getElementById('broccoli').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/riana.jpg">
+      <div class="content">
+        <h3>Cabbage</h3>
+        <p>RIANA F1 10g</p>
+        <div class="price">KSh 725-33,850</div>
+        <input type="number" min="1" value="1" id="cabbage">
+        <button onclick="addToCart('Cabbage',90,document.getElementById('cabbage').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/California_Wonder_.jpg" alt="Capsicum">
+      <div class="content">
+        <h3>Capsicum</h3>
+        <p>California Wonder 100g</p>
+        <div class="price">KSh 5-17,120</div>
+        <input type="number" min="1" value="1" id="capsicum">
+        <button onclick="addToCart('Capsicum',140,document.getElementById('capsicum').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/Carrot%20Nantes..jpg">
+      <div class="content">
+        <h3>Carrot</h3>
+        <p>Nantes 100g</p>
+        <div class="price">KSh 60-4,565</div>
+        <input type="number" min="1" value="1" id="carrot">
+        <button onclick="addToCart('Carrot',150,document.getElementById('carrot').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/snowball1.jpg" alt="Cauliflower">
+      <div class="content">
+        <h3>Cauliflower</h3>
+        <p>Early Snowball 10g</p>
+        <div class="price">KSh 2-450</div>
+        <input type="number" min="1" value="1" id="cauliflower">
+        <button onclick="addToCart('Cauliflower',170,document.getElementById('cauliflower').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/9RWpXcellery.jpg">
+      <div class="content">
+        <h3>Celery</h3>
+        <p>Tall Utah 10g</p>
+        <div class="price">KSh 145-685</div>
+        <input type="number" min="1" value="1" id="celery">
+        <button onclick="addToCart('Celery',130,document.getElementById('celery').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/iuvEBCOLLARD.jpg">
+      <div class="content">
+        <h3>Collard</h3>
+        <p>Collard Simlaw Select100g.</p>
+        <div class="price">KSh 40-1,630</div>
+        <input type="number" min="1" value="1" id="collard">
+        <button onclick="addToCart('Collard',80,document.getElementById('collard').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/u21grashley.jpg" alt="Cucumber">
+      <div class="content">
+        <h3>Cucumber</h3>
+        <p>Ashley 25g</p>
+        <div class="price">KSh 405-805</div>
+        <input type="number" min="1" value="1" id="cucumber">
+        <button onclick="addToCart('Cucumber',100,document.getElementById('cucumber').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://via.placeholder.com/400x250?text=Eggplant" alt="Eggplant">
+      <div class="content">
+        <h3>Eggplant</h3>
+        <p>Black Beauty 10g</p>
+        <div class="price">KSh 115-5,100</div>
+        <input type="number" min="1" value="1" id="eggplant">
+        <button onclick="addToCart('Eggplant',110,document.getElementById('eggplant').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/mqnjBjews.jpg" alt="Local Vegetables">
+      <div class="content">
+        <h3>Local Vegetables</h3>
+        <p>Jews Mallow -Mrenda ss 100g.</p>
+        <div class="price">KSh 190</div>
+        <input type="number" min="1" value="1" id="local-vegetables">
+        <button onclick="addToCart('Local Vegetables',70,document.getElementById('local-vegetables').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/Kale%201000headed.JPG" alt="Kale">
+      <div class="content">
+        <h3>Kale</h3>
+        <p>Thousand Headed 100g.</p>
+        <div class="price">KSh 3-4,875</div>
+        <input type="number" min="1" value="1" id="kale">
+        <button onclick="addToCart('Kale',60,document.getElementById('kale').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/nWP9Gleeks.jpg" alt="Leeks">
+      <div class="content">
+        <h3>Leeks</h3>
+        <p>Italian Giant 10g.</p>
+        <div class="price">KSh 30-140</div>
+        <input type="number" min="1" value="1" id="leeks">
+        <button onclick="addToCart('Leeks',120,document.getElementById('leeks').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/V1p42lettuce.jpg" alt="Lettuce">
+      <div class="content">
+        <h3>Lettuce</h3>
+        <p>Great Lakes 25g.</p>
+        <div class="price">KSh 225</div>
+        <input type="number" min="1" value="1" id="lettuce">
+        <button onclick="addToCart('Lettuce',100,document.getElementById('lettuce').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/t9KNEokra.jpg" alt="Okra">
+      <div class="content">
+        <h3>Okra</h3>
+        <p>Clemson Spineless 10g.</p>
+        <div class="price">KSh 25-60</div>
+        <input type="number" min="1" value="1" id="okra">
+        <button onclick="addToCart('Okra',130,document.getElementById('okra').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/lEwGYred%20creole.jpg" alt="Onion">
+      <div class="content">
+        <h3>Onion</h3>
+        <p>Onion Sivan F1 10g.</p>
+        <div class="price">KSh 180-17,295</div>
+        <input type="number" min="1" value="1" id="onion">
+        <button onclick="addToCart('Onion',90,document.getElementById('onion').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/italian_persley.jpg" alt="Parsley">
+      <div class="content">
+        <h3>Parsley</h3>
+        <p>Parsley Italian Giant 10g.</p>
+        <div class="price">KSh 60-1,280</div>
+        <input type="number" min="1" value="1" id="parsley">
+        <button onclick="addToCart('Parsley',80,document.getElementById('parsley').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/cherry2.jpg">
+      <div class="content">
+        <h3>Radish</h3>
+        <p>Cherry Belle 1kg.</p>
+        <div class="price">KSh 150-5,360</div>
+        <input type="number" min="1" value="1" id="radish">
+        <button onclick="addToCart('Radish',100,document.getElementById('radish').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/Spinach_Fordhook_Giant25.jpg">
+      <div class="content">
+        <h3>Spinach</h3>
+        <p>Fordhook Giant 100g</p>
+        <div class="price">KSh 4-2,000</div>
+        <input type="number" min="1" value="1" id="spinach">
+        <button onclick="addToCart('Spinach',80,document.getElementById('spinach').value)">Add To Cart</button>
+      </div>
+      
+
+</div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/jupiter_(2).jpg" alt="Squash">
+      <div class="content">
+        <h3>Squash</h3>
+        <p>Squash Jupiter F1 10g.</p>
+        <div class="price">KSh 15-18,990</div>
+        <input type="number" min="1" value="1" id="squash">
+        <button onclick="addToCart('Squash',140,document.getElementById('squash').value)">Add To Cart</button>
+    
+      </div>
+      
+
+</div>
+    </div>
+    
+    
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/Tomato_cal_J.png">
+      <div class="content">
+        <h3>Tomato</h3>
+        <p>Cal J 10g.</p>
+        <div class="price">KSh 280-1,355</div>
+        <input type="number" min="1" value="1" id="tomato">
+        <button onclick="addToCart('Tomato',110,document.getElementById('tomato').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/Turnip1.jpg" alt="Turnip">
+      <div class="content">
+        <h3>Turnip</h3>
+        <p>Early P Top White Globe 100g.</p>
+        <div class="price">KSh 40-210</div>
+        <input type="number" min="1" value="1" id="turnip">
+        <button onclick="addToCart('Turnip',120,document.getElementById('turnip').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://www.simlaw.co.ke/uploads/product/Julie_sample_25.png" alt="Watermelon">
+      <div class="content">
+        <h3>Watermelon</h3>
+        <p>Watermelon Julie 250g.</p>
+        <div class="price">KSh 70-9,000</div>
+        <input type="number" min="1" value="1" id="watermelon">
+        <button onclick="addToCart('Watermelon',250,document.getElementById('watermelon').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="https://via.placeholder.com/400x250?text=Pumpkin" alt="Pumpkin">
+      <div class="content">
+        <h3>Pumpkin</h3>
+        <p>Pumpkin Elgon Cream 10g.</p>
+        <div class="price">KSh 60-5,810</div>
+        <input type="number" min="1" value="1" id="pumpkin">
+        <button onclick="addToCart('Pumpkin',200,document.getElementById('pumpkin').value)">Add To Cart</button>
+      </div>
+    </div>
+    
+</div>
+<div class="checkout">
+<button class="checkout-btn" onclick="submitOrder()">Submit Cart 🛒</button>
+</div>
+</div>
+<script>
+
+function addToCart(name, price, quantity){
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    cart.push({
+        name: name,
+        price: price,
+        quantity: parseInt(quantity)
+    });
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert(name + ' added to cart');
+}
+
+function submitOrder(){
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    if(cart.length === 0){
+        alert('Please add at least one vegetable to your cart.');
+        return;
+    }
+
+    window.location.href = 'cart.html';
+}
+
+</script>
+</body>
+</html>

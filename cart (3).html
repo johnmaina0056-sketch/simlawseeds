@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart</title>
+<style>
+body{
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f7f6, #e9f5ee);
+    margin:0;
+    padding:20px;
+    color:#222;
+}
+
+/* CONTAINER */
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+/* TITLE */
+h1{
+    text-align:center;
+    color:#1b5e20;
+    font-size:32px;
+    margin-bottom:25px;
+    letter-spacing:1px;
+}
+
+/* CART BOX */
+.cart-box{
+    background:#fff;
+    padding:25px;
+    border-radius:14px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    border:1px solid #eef2ef;
+}
+
+/* ITEM ROW */
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 10px;
+    border-bottom:1px solid #eee;
+    transition:0.2s;
+}
+
+.cart-item:hover{
+    background:#f9fbfa;
+}
+
+/* ITEM TEXT */
+.cart-item span{
+    font-size:16px;
+}
+
+/* TOTAL */
+.total{
+    margin-top:20px;
+    font-size:26px;
+    font-weight:700;
+    text-align:right;
+    color:#1b5e20;
+}
+
+/* BUTTON BASE */
+.btn{
+    padding:12px 18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    color:#fff;
+    font-weight:600;
+    transition:0.25s;
+}
+
+/* BUTTON VARIANTS */
+.remove{
+    background:#e53935;
+}
+
+.remove:hover{
+    background:#c62828;
+    transform:translateY(-2px);
+}
+
+.clear{
+    background:#fb8c00;
+}
+
+.clear:hover{
+    background:#ef6c00;
+    transform:translateY(-2px);
+}
+
+.shop{
+    background:#2e7d32;
+}
+
+.shop:hover{
+    background:#1b5e20;
+    transform:translateY(-2px);
+}
+
+/* BUTTON GROUP */
+.buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+/* EMPTY STATE */
+.empty{
+    text-align:center;
+    padding:40px;
+    color:#777;
+    font-size:18px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width:600px){
+    .cart-item{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:8px;
+    }
+
+    .total{
+        text-align:left;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>🛒 Shopping Cart</h1>
+
+<div class="cart-box">
+
+<div id="cartItems"></div>
+
+<div class="total">
+Total: KSh <span id="total">0</span>
+</div>
+
+<div class="buttons">
+<button class="btn shop" onclick="sendOrder()">
+    Submit Order via WhatsApp
+</button>
+<button class="btn clear" onclick="clearCart()">Clear Cart</button>
+</div>
+
+</div>
+</div>
+
+
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function renderCart(){
+
+const cartItems = document.getElementById("cartItems");
+const totalEl = document.getElementById("total");
+
+cartItems.innerHTML = "";
+
+if(cart.length === 0){
+cartItems.innerHTML = '<div class="empty">Your cart is empty.</div>';
+totalEl.textContent = "0";
+return;
+}
+
+let total = 0;
+
+cart.forEach((item,index)=>{
+
+let subtotal = item.price * item.quantity;
+total += subtotal;
+
+cartItems.innerHTML += `
+<div class="cart-item">
+<div>
+<strong>${item.name}</strong><br>
+Quantity: ${item.quantity}<br>
+Price: KSh ${item.price}
+</div>
+
+<div>
+<strong>KSh ${subtotal}</strong><br><br>
+<button class="btn remove" onclick="removeItem(${index})">Remove</button>
+</div>
+</div>
+`;
+
+});
+
+totalEl.textContent = total;
+
+}
+
+function removeItem(index){
+cart.splice(index,1);
+localStorage.setItem("cart", JSON.stringify(cart));
+renderCart();
+}
+
+function clearCart(){
+if(confirm("Clear all items?")){
+cart = [];
+localStorage.setItem("cart", JSON.stringify(cart));
+renderCart();
+}
+}
+
+renderCart();
+
+function sendOrder(){
+
+    if(cart.length === 0){
+        alert("Your cart is empty.");
+        return;
+    }
+
+    let message = "🛒 NEW VEGETABLE ORDER\n\n";
+
+    let total = 0;
+
+    cart.forEach(item => {
+
+        let subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        message +=
+        "Product: " + item.name + "\n" +
+        "Quantity: " + item.quantity + "\n" +
+        "Subtotal: KSh " + subtotal + "\n\n";
+
+    });
+
+    message += "TOTAL: KSh " + total;
+
+    let phone = "254792946075";
+
+    let whatsappURL =
+    "https://wa.me/" + phone +
+    "?text=" + encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
+}
+</script>
+</body>
+</html>

@@ -72,6 +72,48 @@ body{
 .navbar-nav .nav-link:hover{
     color:#108244 !important;
 }
+/* ALWAYS SHOW MENU */
+
+.navbar .container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.navbar-nav{
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+
+.navbar-nav .nav-link{
+    padding:8px 12px;
+}
+
+@media(max-width:768px){
+
+    .navbar .container{
+        flex-direction:column;
+    }
+
+    .logo{
+        margin-bottom:10px;
+    }
+
+    .navbar-nav{
+        width:100%;
+        justify-content:center;
+    }
+
+    .navbar-nav .nav-link{
+        font-size:14px;
+        padding:6px 8px;
+    }
+}
 
 /* SEARCH */
 
@@ -762,84 +804,56 @@ img{
 </div>
 <!-- NAVIGATION -->
 
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light"><!-- NAVIGATION -->
+
+<nav class="navbar navbar-light">
     <div class="container">
 
         <a class="navbar-brand logo" href="#">
             <span>Simlaw</span> Seeds
         </a>
 
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#mainMenu">
+        <!-- ALWAYS VISIBLE MENU -->
+        <ul class="navbar-nav ms-auto flex-row flex-wrap justify-content-center">
 
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                   href="#"
+                   role="button"
+                   data-bs-toggle="dropdown">
+                    Categories
+                </a>
 
-        <div class="collapse navbar-collapse" id="mainMenu">
+                <ul class="dropdown-menu">
 
-            <ul class="navbar-nav ms-auto">
+                    <li><h6 class="dropdown-header">Product Categories</h6></li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle"
-                       href="#"
-                       role="button"
-                       data-bs-toggle="dropdown">
-                        Categories
-                    </a>
+                    <li><a class="dropdown-item" href="vegetables.html">Vegetables</a></li>
+                    <li><a class="dropdown-item" href="maize.html">Maize</a></li>
+                    <li><a class="dropdown-item" href="cereals.html">Cereals</a></li>
+                    <li><a class="dropdown-item" href="pulses.html">Pulses</a></li>
+                    <li><a class="dropdown-item" href="herbs.html">Herbs</a></li>
+                    <li><a class="dropdown-item" href="pasture.html">Pasture</a></li>
+                    <li><a class="dropdown-item" href="lawn.html">Lawn-grass</a></li>
+                    <li><a class="dropdown-item" href="otherinputs.html">Other Inputs</a></li>
+                    <li><a class="dropdown-item" href="seedlings.html">Seedlings</a></li>
 
-                    <ul class="dropdown-menu">
+                </ul>
+            </li>
 
-                        <li><h6 class="dropdown-header">Product Categories</h6></li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Products</a>
+            </li>
 
-                        <li><a class="dropdown-item" href="vegetables.html">Vegetables</a></li>
-                        <li><a class="dropdown-item" href="maize.html">Maize</a></li>
-                        <li><a class="dropdown-item" href="cereals.html">Cereals</a></li>
-                        <li><a class="dropdown-item" href="pulses.html">Pulses</a></li>
-                        <li><a class="dropdown-item" href="herbs.html">Herbs</a></li>
-                        <li><a class="dropdown-item" href="#pasture.html">Pasture</a></li>
-                        <li><a class="dropdown-item" href="lawn.html">Lawn-grass</a></li>
-                        <li><a class="dropdown-item" href="otherinputs.html">Other Inputs</a></li>
-                        <li><a class="dropdown-item" href="seedlings.html">Seedlings</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Events</a>
+            </li>
 
-                    </ul>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Products</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Events</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-
-            </ul>
-
-            <!-- Responsive search form
-            <form class="d-flex flex-column flex-lg-row ms-lg-3 mt-3 mt-lg-0">
-
-                <input
-                    class="form-control search-box mb-2 mb-lg-0"
-                    type="search"
-                    placeholder="Search Products">
-
-                <button
-                    class="btn btn-success ms-lg-2"
-                    type="submit">
-
-                    <i class="fa fa-search"></i>
-
-                </button>
-
-            </form> -->
-
-        </div>
+        </ul>
 
     </div>
 </nav>
